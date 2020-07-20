@@ -1,0 +1,138 @@
+<!doctype html><html><head> 
+  <meta content="width=device-width, initial-scale=1" name="viewport"> 
+ <style type="text/css" id="dcoder_stylesheet">body {
+  margin: 30px;
+}
+.dropdown {
+  border: 0px;
+  background-color: transparent;
+  border-radius: 5px;
+  outline: none;
+  height: 30px;
+  color: #000000;
+  width: 100px;
+  font-size: 15px;
+  position: absolute;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.dropdown-items {
+  width: 100px;
+  z-index: 1000;
+  height: auto;
+  background-color: rgba(255,255,255,1);
+  opacity: 1;
+  z-index: 1000;
+  border-radius: 5px;
+  transform: scale(0,0);
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+.dropdown-items button {
+  height: 30px;
+  width: 100px;
+  display: block;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 0px;
+  outline: none;
+  transition: background-color 0.3s;
+}
+.dropdown-items button:hover {
+  background-color: rgba(0,0,0,0.4);
+}
+.ripple {
+  border: 0px;
+  background-color: transparent;
+  border-radius: 5px;
+  outline: none;
+  height: 30px;
+  color: #000000;
+  width: 100px;
+  font-size: 15px;
+  position: absolute;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}</style></head> 
+ <body> 
+  <p>Dropdown</p> 
+  <div> 
+   <button class="dropdown">items</button> 
+   <div class="dropdown-items"> 
+    <button>Item 1</button> 
+    <button>Item 2</button> 
+    <button>Item 3</button> 
+   </div> 
+  </div> 
+  <div> 
+   <button class="ripple">RIPPLE</button> 
+  </div> 
+  <br> 
+  <br> 
+  <br> 
+  <div> 
+   <button class="dropdown">items</button> 
+   <div class="dropdown-items"> 
+    <button>Item 1</button> 
+    <button>Item 2</button> 
+    <button>Item 3</button> 
+    <button>Item 4</button> 
+    <button>Item 5</button> 
+    <button>Item 6</button> 
+    <button>Item 7</button> 
+    <button>Item 8</button> 
+    <button>Item 9</button> 
+   </div> 
+  </div> 
+ 
+<script type="text/javascript" id="dcoder_script">function ripplefunc(el, bgcolor) {
+  this.el = el;
+  this.bgcolor = bgcolor;
+  const ripple = document.createElement("div");
+  el.parentElement.appendChild(ripple);
+/*ripple style:*/
+ripple.style.backgroundColor = bgcolor;
+ripple.style.position = "absolute";
+ripple.style.pointerEvents = "none";
+ripple.style.borderRadius = "5px";
+ripple.style.transition = "transform 0.2s";
+ripple.style.transform = "scale(0,0)";
+ripple.style.opacity = 1;
+const rippleStyle = window.getComputedStyle(el);
+ripple.style.width = rippleStyle.getPropertyValue("width");
+ripple.style.height = rippleStyle.getPropertyValue("height");
+/*other code*/
+  ripple.style.transform = "scale(1,1)";
+  setTimeout(function(){
+  ripple.style.transition = "opacity 0.5s";
+  ripple.style.opacity = 0;
+    setTimeout(function(){ripple.remove();}, 3000);
+  },300);
+}
+
+const rippleBtn = document.getElementsByClassName("ripple")[0];
+rippleBtn.onclick = function() {
+ripplefunc(rippleBtn, "rgba(200,0,0,0.5)");
+}
+function newDropdown(el) {
+  this.el = el;
+const dropdown = document.getElementsByClassName("dropdown")[el];
+const dropdownItems = document.getElementsByClassName("dropdown-items")[el];
+const x = document.querySelectorAll(".dropdown-items button");
+dropdown.onclick = function() {
+dropdownItems.style.transform = "scale(1.1,1.1)";
+for(var y = 0; y < x.length; y++) { 
+x[y].onclick = function() {  
+dropdown.innerHTML = this.innerHTML;
+dropdownItems.style.transform = "scale(0,0)";
+}}}}
+/*OTHER CODES*/
+
+document.getElementsByClassName("dropdown")[0].onclick = function() {
+  newDropdown(0);
+}
+document.getElementsByClassName("dropdown")[1].onclick = function() {
+  newDropdown(1);
+}</script></body></html>
