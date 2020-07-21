@@ -1,8 +1,68 @@
- body {
+body {
+ margin: 0px;
+ background-color: #1f1f1f;
+}
 
-
-margin: 0px;
-background-color: #1f1f1f;
+.dropdown-items2 {
+  width: 50px;
+  z-index: 1000;
+  height: 100px;
+  margin-left: 10px;
+  margin-top: -35px;
+  position: absolute;
+  background-color: #1f1f1f;
+  opacity: 1;
+  z-index: 1000;
+  color: white;
+  border-radius: 5px;
+  overflow: scroll;
+  transform: scale(0,0);
+  box-shadow: 1px 1px 10px rgba(20,20,20,0.5);
+  transition: transform 0.2s;
+}
+.dropdown-items2 button {
+  height: 30px;
+  width: 50px;
+  display: block;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  outline: none;
+  transition: background-color 0.3s;
+}
+.dropdown-items2 button:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+.dropdown-items {
+  width: 50px;
+  z-index: 1000;
+  height: auto;
+  margin-left: 85px;
+  margin-top: -30px;
+  position: absolute;
+  background-color: #1f1f1f;
+  opacity: 1;
+  z-index: 1000;
+  color: white;
+  border-radius: 5px;
+  transform: scale(0,0);
+  box-shadow: 1px 1px 10px rgba(20,20,20,0.5);
+  transition: transform 0.2s;
+}
+.dropdown-items button {
+  height: 30px;
+  width: 50px;
+  display: block;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+  border: 0px;
+  outline: none;
+  transition: background-color 0.3s;
+}
+.dropdown-items button:hover {
+  background-color: rgba(255,255,255,0.1);
 }
 #preview {
 height: 200px;
@@ -69,7 +129,7 @@ border-radius: 3px;
 .text-checkbox {
 margin: 5px;
 position: absolute;
-margin-left: 35px;
+margin-left: 40px;
 }
 #second-text-checkbox {
 top: 113px;
@@ -99,7 +159,7 @@ margin-top: 15px;
 margin-left: 10px;
 }
 .small-input-description {
-color: gray; font-size: 12px; margin: 5px;
+color: gray; font-size: 12px; margin: 5px; 
 }
 #text-align {
 margin-top: 0px;
