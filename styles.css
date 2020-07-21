@@ -1,0 +1,110 @@
+ body {
+
+
+margin: 0px;
+background-color: #1f1f1f;
+}
+#preview {
+height: 200px;
+width: 200px;
+border: 1px solid rgba(255,255,255,0.2);
+border-radius: 3px;
+position: absolute;
+margin: 10px;
+overflow: scroll;
+color: white;
+padding: 5px;
+}
+#tools {
+background-color: rgba(255,255,255,0.1);
+width: 150px;
+height: 550px;
+float: right;
+padding: 10px;
+}
+#text-tab-button {
+width: 150px;
+height: 0px;
+margin: 5px;
+position: relative;
+background-color: rgba(0,0,0,0.1);
+border: 0px;
+border-radius: 3px;
+}
+.description {
+color: gray;
+margin: 10px;
+margin-bottom: 0px;
+}
+.textarea {
+width: 140px;
+height: 40px;
+color: white;
+background-color: transparent;
+border: 1px solid gray;
+border-radius: 3px;
+outline: none;
+}
+.add {
+border: 1px solid gray;
+border-radius: 3px;
+color: white;
+background-color: #1f1f1f;
+width: 30px;
+margin: 5px;
+height: 30px;
+text-align: center;
+display: inline-block;
+outline: none;
+font-size: 25px;
+}
+#textarea-button {
+background-color: rgba(0,0,0,0.1);
+width: 140px;
+height: 210px;
+padding: 5px;
+margin: 2px;
+border-radius: 3px;
+}
+.text-checkbox {
+margin: 5px;
+position: absolute;
+margin-left: 35px;
+}
+#second-text-checkbox {
+top: 113px;
+}
+#first-text-checkbox {
+top: 93px;
+}
+#text-size {
+position: absolute;
+top: 160px;
+margin-left: 10px;
+display: inline-block;
+}
+.small-input {
+width: 50px;
+height: 20px;
+margin: 5px;
+background-color: rgba(0,0,0,0.4);
+border: 0px;
+outline: none;
+color: white;
+border-radius: 3px;
+text-align: center;
+}
+#text-color {
+margin-top: 15px;
+margin-left: 10px;
+}
+.small-input-description {
+color: gray; font-size: 12px; margin: 5px;
+}
+#text-align {
+margin-top: 0px;
+display: inline-block;
+position: absolute;
+margin-left: 84px;
+top: 165px;
+}
