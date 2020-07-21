@@ -2,8 +2,9 @@
 <html>
  <head> 
   <meta content="width=device-width, initial-scale=1" name="viewport"> 
- <link rel="stylesheet" href="styles.css">
-</head> 
+<link ref="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+ </head> 
  <body> 
   <div id="preview"> 
   </div> 
@@ -12,16 +13,47 @@
    <p class="description">Text</p> 
    <div id="textarea-button"> 
     <textarea class="textarea"></textarea> 
-    <button class="add">+</button> 
+    <div> 
+     <button class="add">+</button> 
+    </div> 
     <input id="first-text-checkbox" class="text-checkbox" type="checkbox"> 
     <label style="position: absolute; margin-left: 60px; top: 96px; color: grey; font-size:15px;" for="first-text-checkbox">bold</label> 
     <input id="second-text-checkbox" class="text-checkbox" type="checkbox"> 
     <label style="position: absolute; margin-left: 60px; top: 116px; color: grey; font-size:15px;" for="second-text-checkbox">italic</label> 
     <hr style="border-radius: 5px; width: 120px;border: 0.2px solid gray;"> 
-    <p style="margin-left: 10px;" class="small-input-description">Text size</p> 
-    <input id="text-size" class="small-input" value="20px"> 
+    <p style="margin-left: 10px;margin-top: -3px;" class="small-input-description">Text size</p> 
+    <button id="text-size" class="small-input" value="20px">20px</button> 
+     <div class="dropdown-items2"> 
+     <button>10px</button> 
+     <button>11px</button> 
+     <button>12px</button> 
+     <button>13px</button> 
+     <button>14px</button>
+     <button>15px</button>
+     <button>16px</button> 
+     <button>17px</button> 
+     <button>18px</button>
+     <button>19px</button> 
+     <button>20px</button> 
+     <button>21px</button>
+     <button>22px</button> 
+     <button>23px</button> 
+     <button>24px</button>
+     <button>25px</button> 
+     <button>26px</button> 
+     <button>27px</button>
+     <button>28px</button> 
+     <button>29px</button> 
+     <button>30px</button> 
+     
+    </div> 
     <p style="margin-bottom: 2px; position: absolute;top:144px;margin-left: 84px;" class="small-input-description">Text align</p> 
-    <input class="small-input" id="text-align" value="left"> 
+    <button class="small-input" id="text-align" value="left">left</button> 
+    <div class="dropdown-items"> 
+     <button>left</button> 
+     <button>center</button> 
+     <button>right</button> 
+    </div> 
     <br> 
     <hr style="border-radius: 5px; width: 120px;border: 0.2px solid gray;"> 
     <p style="margin-bottom: 2px; position: absolute;top:198px;margin-left: 10px;" class="small-input-description">Text color</p> 
