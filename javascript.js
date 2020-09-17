@@ -1,117 +1,166 @@
-function newDropdown(el) {
-  this.el = el;
-const dropdownItems = document.getElementsByClassName("dropdown-items")[el];
-const x = document.querySelectorAll(".dropdown-items button");
-textAlign.onclick = function() {
-dropdownItems.style.transform = "scale(1.1,1.1)";
-for(var y = 0; y < x.length; y++) { 
-x[y].onclick = function() {  
-textAlign.innerHTML = this.innerHTML;
-dropdownItems.style.transform = "scale(0,0)";
-}}}}
-function newDropdown2(el) {
-  this.el = el;
-const dropdownItems2 = document.getElementsByClassName("dropdown-items2")[el];
-const x2 = document.querySelectorAll(".dropdown-items2 button");
-textSize.onclick = function() {
-dropdownItems2.style.transform = "scale(1.1,1.1)";
-for(var y = 0; y < x2.length; y++) { 
-x2[y].onclick = function() {  
-textSize.innerHTML = this.innerHTML;
-dropdownItems2.style.transform = "scale(0,0)";
-}}}}
-function ripplefunc(el, bgcolor) {
-  this.el = el;
-  this.bgcolor = bgcolor;
-  const ripple = document.createElement("div");
- el.parentElement.appendChild(ripple);
-/*ripple style:*/
-ripple.style.backgroundColor = bgcolor;
-ripple.style.position = "absolute";
-ripple.style.pointerEvents = "none";
-ripple.style.borderRadius = "5px";
-ripple.style.transition = "transform 0.2s";
-ripple.style.transform = "scale(0,0)";
-ripple.style.opacity = 1;
-const rippleStyle = window.getComputedStyle(el);
-ripple.style.width = rippleStyle.getPropertyValue("width");
-ripple.style.height = rippleStyle.getPropertyValue("height");
-ripple.style.margin = rippleStyle.getPropertyValue("margin");
-ripple.style.marginTop = parseInt(rippleStyle.getPropertyValue("margin-top"), 10) - 10 - parseInt(rippleStyle.getPropertyValue("height"), 10) + "px"
-ripple.style.borderRadius = rippleStyle.getPropertyValue("border-radius");
-/*other code*/
-  ripple.style.transform = "scale(1,1)";
-  setTimeout(function(){
-  ripple.style.transition = "opacity 0.5s";
-  ripple.style.opacity = 0;
-    setTimeout(function(){ripple.remove();}, 3000);
-  },300);
+const tab1_button = document.getElementsByClassName("tab")[0];
+
+
+const tab2_button = document.getElementsByClassName("tab")[1];
+const autoTab_content = document.getElementById("auto-content");
+const customTab_content = document.getElementById("custom-content");
+tab2_button.style.left = "50%";
+tab1_button.style.left = "0px";
+window.onload = function() {
+  tab1_button.click();
+}
+tab1_button.onclick = function() {
+  if(getComputedStyle(autoTab_content).getPropertyValue("display") == "none") {
+  tab1_button.style.backgroundColor = "rgba(242, 204, 143,0.5)";
+  tab2_button.style.backgroundColor = "rgba(242, 204, 143,0.2)";
+  autoTab_content.style.display = "block";
+  customTab_content.style.display = "none";
+   }
+}
+tab2_button.onclick = function() {
+   if(getComputedStyle(customTab_content).getPropertyValue("display") == "none") {
+     tab2_button.style.backgroundColor = "rgba(242, 204, 143,0.5)";
+     tab1_button.style.backgroundColor = "rgba(242, 204, 143,0.2)";
+     customTab_content.style.display = "block"
+     autoTab_content.style.display = "none";
+   }
 }
 
-const preview = document.getElementById("preview");
-const textarea = document.getElementsByClassName("textarea")[0];
-const addText = document.getElementsByClassName("add")[0];
-const textBoldCheckbox = document.getElementById("first-text-checkbox");
-const textItalicCheckbox = document.getElementById("second-text-checkbox");
-const textSize = document.getElementById("text-size");
-const textAlign = document.getElementById("text-align");
-const textColor = document.getElementById("text-color");
-var a;
-var b;
-var c;
-textAlign.onclick = function() {
-  newDropdown(0);
+function exportCanvasAsPNG(id, fileName) {
+
+    var canvas = document.getElementById(id);
+
+    var MIME_TYPE = "image/png";
+
+    var imgURL = canvas.toDataURL(MIME_TYPE);
+
+    var dlLink = document.createElement('a');
+    dlLink.download = fileName;
+    dlLink.href = imgURL;
+    dlLink.dataset.downloadurl = [MIME_TYPE, dlLink.download, dlLink.href].join(':');
+
+    document.body.appendChild(dlLink);
+    dlLink.click();
+    document.body.removeChild(dlLink);
 }
-textSize.onclick = function() {
-  newDropdown2(0);
-}
-textBoldCheckbox.oninput = function() {
-  if(textBoldCheckbox.checked) {
- textarea.style.fontWeight = "bold";
-}
-else {
-  textarea.style.fontWeight = "normal";
-}
-if(textItalicCheckbox.checked) {
-  textarea.style.fontStyle = "italic";
-}
-else {
-  textarea.style.fontStyle = "normal";
-}
-}
-textItalicCheckbox.oninput = function() {
-  if(textBoldCheckbox.checked) {
- textarea.style.fontWeight = "bold";
-}
-else {
-  textarea.style.fontWeight = "normal";
-}
-if(textItalicCheckbox.checked) {
-  textarea.style.fontStyle = "italic";
-}
-else {
-  textarea.style.fontStyle = "normal";
-}
-}
-textColor.oninput = function() {
-  textColor.style.color = textColor.value;
-  textarea.style.color = textColor.value;
-}
-addText.onclick = function() {
- ripplefunc(addText, "rgba(255,255,255,0.5)"); 
-if(textBoldCheckbox.checked) {
-  a = "font-weight: bold";
-}
-if(textItalicCheckbox.checked) {
- a = "font-style: italic";
-}
-if(textBoldCheckbox.checked && textItalicCheckbox.checked) {
-  a = "font-style: italic; font-weight: bold";
-}
-preview.insertAdjacentHTML("beforeend", "<p style='"+a+";font-size:"+textSize.innerHTML+";color:"+textColor.value+";text-align:"+textAlign.innerHTML+";margin:0px;'>"+textarea.value+"</p>");
-textBoldCheckbox.checked = false;
-textItalicCheckbox.checked = false;
-textarea.value = "";
+  
+
+
+function random(max, min) {
+return Math.floor(Math.random() * (max - min)) + min;
 }
 
 
+
+
+
+
+
+
+
+
+var canvas = document.getElementById("canvas1");
+var ctx = canvas.getContext("2d");
+ctx.lineWidth = 0;
+var btn = document.getElementById("gen");
+canvas.width = 100;
+canvas.height = 100;
+
+document.getElementById("change-image-size").onclick = function() {
+  canvas.height = document.getElementById("image-size1").value;
+  canvas.width = document.getElementById("image-size2").value;
+}
+var exportBtn = document.getElementById("export");
+var fileNameInput = document.getElementById("file-name");
+exportBtn.onclick = function() {
+  exportCanvasAsPNG("canvas1", fileNameInput.value);
+}
+
+var darkThemeBtn = document.getElementById("dark-theme-btn");
+darkThemeBtn.onclick = function() {
+  if(darkThemeBtn.innerText = "Dark theme") {//check if dark mode is on
+  darkThemeBtn.innerText = "Light theme";
+  document.documentElement.style.setProperty("--text-color","white");
+  document.documentElement.style.setProperty("--bg-color","#121212");
+  document.documentElement.style.setProperty("--settings-bg", "#222222");
+  document.documentElement.style.setProperty("--border-color", "#232323");
+  document.documentElement.style.setProperty("--input-color", "#353535");
+  document.documentElement.style.setProperty("--input-text", "#ffffff");
+  document.documentElement.style.setProperty("--input-border", "#aaaaaa")
+   }
+   else if(darkThemeBtn.innerText = "Light theme") {
+  darkThemeBtn.innerText = "Dark theme";
+  document.documentElement.style.setProperty("--text-color","black");
+  document.documentElement.style.setProperty("--bg-color","white");
+  document.documentElement.style.setProperty("--settings-bg", "#eeeeee");
+  document.documentElement.style.setProperty("--border-color", "gray");
+  document.documentElement.style.setProperty("--input-color", "white");
+  document.documentElement.style.setProperty("--input-text", "black");
+  document.documentElement.style.setProperty("--input-border", "gray")
+  
+   }
+}
+var advancedSettingsHidden = document.getElementsByClassName("advanced-settings-hidden")[0];
+var advancedSettings = document.getElementById("advanced-settings");
+  advancedSettings.onclick = function() {
+    advancedSettingsHidden.classList.toggle("show");
+   if(advancedSettingsHidden.classList == "advanced-settings-hidden show") {
+     advancedSettings.innerText = "Hide advanced settings";
+     advancedSettings.style.borderBottom = "0px";
+   }
+   else {
+     advancedSettings.innerText = "Show advanced settings";
+     advancedSettings.style.borderBottom = "1px solid gray";
+   }
+  }
+  var colorsInput = document.getElementById("add-colors-input");
+  var colorsBtn = document.getElementById("add-colors-btn");
+  var colorsList = document.getElementById("colors-list");
+  var colors = ["lightgreen", "salmon", "yellow"];
+  var cubeQuantity = 3000;
+  var cubeSize = 5;
+  var cubeGenRange = 20;
+  document.getElementById("set-cube-quantity").onclick = function() {
+   cubeQuantity = document.getElementById("cube-quantity").value;
+  }
+  document.getElementById("set-size").onclick = function() {
+   cubeSize = document.getElementById("cube-size").value;
+   cubeGenRange = canvas.width / cubeSize;
+  }
+  document.getElementById("remove-colors").onclick = function() {
+   for(var i = 0; i < colors.length; i++) {
+    colors.splice(i)
+  }
+  colorsList.innerHTML = "<span class='highlight'>Colors:</span>";
+  }
+  colorsBtn.onclick = function() {
+  colors.push(colorsInput.value);
+  if(colorsInput.value != "") {
+  colorsList.innerHTML += "<br>" + colorsInput.value + ",";
+  colorsInput.value = "";
+  }
+  }
+btn.onclick = function() {
+  if(colors == "") {
+    alert("No colors added!")
+  }
+  else {
+
+    if(document.getElementById("delete-cubes-after-gen").checked) {
+   //do nothing
+    }
+    else {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    }
+  
+  for(var t = 0; t < cubeQuantity; t+=0.5) {
+  var x = 0.5;
+  var y = 0.5;
+  ctx.fillStyle = colors[random(0,colors.length)];
+  ctx.strokeStyle = ctx.fillStyle;
+  x = (random(0, cubeGenRange) * cubeSize);
+  y = (random(0, cubeGenRange) * cubeSize);
+  ctx.fillRect(x,y,cubeSize,cubeSize);
+    }
+   }
+}
