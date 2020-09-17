@@ -1,69 +1,65 @@
+
 <!doctype html>
+
 <html>
  <head> 
-  <meta content="width=device-width, initial-scale=1" name="viewport"> 
-<link rel="stylesheet" href="styles.css">
-  <title>Text formatting</title>
-<meta name="theme-color" content="#000000">
- </head> 
+  <meta content="width=device-width, user-scalable=no, initial-scale=1" name="viewport"> 
+ <link rel="stylesheet" href="styles.css">
+</head> 
  <body> 
-  <div id="preview"> 
-  </div> 
-  <!-- beginning of content --> 
-  <div id="tools"> 
-   <p class="description">Text</p> 
-   <div id="textarea-button"> 
-    <textarea class="textarea"></textarea> 
-    <div> 
-     <button class="add">+</button> 
-    </div> 
-    <input id="first-text-checkbox" class="text-checkbox" type="checkbox"> 
-    <label style="position: absolute; margin-left: 60px; top: 96px; color: grey; font-size:15px;" for="first-text-checkbox">bold</label> 
-    <input id="second-text-checkbox" class="text-checkbox" type="checkbox"> 
-    <label style="position: absolute; margin-left: 60px; top: 116px; color: grey; font-size:15px;" for="second-text-checkbox">italic</label> 
-    <hr style="border-radius: 5px; width: 120px;border: 0.2px solid gray;"> 
-    <p style="margin-left: 10px;margin-top: -3px;" class="small-input-description">Text size</p> 
-    <button id="text-size" class="small-input" value="20px">20px</button> 
-     <div class="dropdown-items2"> 
-     <button>10px</button> 
-     <button>11px</button> 
-     <button>12px</button> 
-     <button>13px</button> 
-     <button>14px</button>
-     <button>15px</button>
-     <button>16px</button> 
-     <button>17px</button> 
-     <button>18px</button>
-     <button>19px</button> 
-     <button>20px</button> 
-     <button>21px</button>
-     <button>22px</button> 
-     <button>23px</button> 
-     <button>24px</button>
-     <button>25px</button> 
-     <button>26px</button> 
-     <button>27px</button>
-     <button>28px</button> 
-     <button>29px</button> 
-     <button>30px</button> 
-     
-    </div> 
-    <p style="margin-bottom: 2px; position: absolute;top:144px;margin-left: 84px;" class="small-input-description">Text align</p> 
-    <button class="small-input" id="text-align" value="left">left</button> 
-    <div class="dropdown-items"> 
-     <button>left</button> 
-     <button>center</button> 
-     <button>right</button> 
+  <button class="tab">AUTO</button> 
+  <button class="tab">CUSTOM</button> 
+  <div id="auto-content"> 
+   <canvas id="canvas1"></canvas> 
+   <br> 
+   <button id="gen">Generate</button> 
+   <br> 
+   <br> 
+   <div id="settings"> 
+    <input placeholder="color name" id="add-colors-input"> 
+    <button id="add-colors-btn">Add color</button> 
+    <button id="remove-colors">Remove colors</button> 
+    <p id="colors-list"><span class="highlight">Colors:</span><br>salmon,<br>yellow,<br>lightgreen,</p> 
+   </div> 
+   <br> 
+   <button id="advanced-settings">Show advanced settings</button> 
+   <div class="advanced-settings-hidden"> 
+    <br> 
+    <br> 
+    <input value="5" id="cube-size"> 
+    <button id="set-size">Set cube size</button> 
+    <p><span class="highlight">Note!</span> Setting a very small size may not fill all space, because it would reduce performance. This can be changed here:</p> 
+    <input value="3000" id="cube-quantity"> 
+    <button id="set-cube-quantity">Set cube quantity</button> 
+    <br> 
+    <br> 
+    <input id="delete-cubes-after-gen" type="checkbox"> 
+    <label for="delete-cubes-after-gen">Check to not delete previous cubes after generating.</label> 
+    <br> 
+    <br> 
+    <input value="100" id="image-size1"> x 
+    <input value="100" id="image-size2"> 
+    <button id="change-image-size">Change image size</button> 
+    <br> 
+    <br> 
+    <input placeholder="file name" id="file-name"> 
+    <button id="export">Save as png</button> 
+    <br> 
+    <br> 
+    <button id="dark-theme-btn">Dark theme</button> 
+    <div class="warning">
+      Experimental! 
     </div> 
     <br> 
-    <hr style="border-radius: 5px; width: 120px;border: 0.2px solid gray;"> 
-    <p style="margin-bottom: 2px; position: absolute;top:198px;margin-left: 10px;" class="small-input-description">Text color</p> 
-    <input class="small-input" id="text-color" value="white"> 
-    <input id="rainbow-typing" type="checkbox"> 
-    <label style="position: absolute; margin-left: 0px; top: 210px; color: grey; font-size:15px;" for="rainbow-typing">Rainbow typing</label> 
+    <p style="font-size: 18px;"><span class="highlight">Fun fact!</span> Setting cube size to 1, changing image size to 16x16 and saving as image, it can be used as Minecraft block texture!</p> 
+    <br> 
+    <p><span class="highlight">Created by surelis00</span></p> 
    </div> 
   </div> 
-  <!-- end of content --> 
+  <div id="custom-content"> 
+   <canvas id="canvas2"></canvas> 
+   <br> 
+  </div> 
 <script src="javascript.js"></script>
  </body>
 </html>
