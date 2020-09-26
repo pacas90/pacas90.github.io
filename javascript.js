@@ -1,6 +1,4 @@
 const tab1_button = document.getElementsByClassName("tab")[0];
-
-
 const tab2_button = document.getElementsByClassName("tab")[1];
 const autoTab_content = document.getElementById("auto-content");
 const customTab_content = document.getElementById("custom-content");
@@ -8,7 +6,7 @@ tab2_button.style.left = "50%";
 tab1_button.style.left = "0px";
 window.onload = function() {
   tab1_button.click();
-document.documentElement.webkitRequestFullScreen();
+  document.documentElement.webkitRequestFullScreen();
 }
 tab1_button.onclick = function() {
   if(getComputedStyle(autoTab_content).getPropertyValue("display") == "none") {
@@ -18,19 +16,20 @@ tab1_button.onclick = function() {
   customTab_content.style.display = "none";
    }
 }
-tab2_button.onclick = function() {
+ tab2_button.onclick = function() {
    if(getComputedStyle(customTab_content).getPropertyValue("display") == "none") {
-     tab2_button.style.backgroundColor = "rgba(242, 204, 143,0.5)";
-     tab1_button.style.backgroundColor = "rgba(242, 204, 143,0.2)";
+     tab2_button.style.backgroundColor = "rgba(116, 198, 157,0.5)";
+     tab1_button.style.backgroundColor = "rgba(116, 198, 157,0.2)";
      customTab_content.style.display = "block"
      autoTab_content.style.display = "none";
+     drawingModes[0].click();
    }
-}
+ }
 
-function exportCanvasAsPNG(id, fileName) {
+function exportCanvasAsPNG(canvas, fileName) {
 
-    var canvas = document.getElementById(id);
-
+    
+    canvas = this.canvas;
     var MIME_TYPE = "image/png";
 
     var imgURL = canvas.toDataURL(MIME_TYPE);
@@ -44,11 +43,11 @@ function exportCanvasAsPNG(id, fileName) {
     dlLink.click();
     document.body.removeChild(dlLink);
 }
-  
+   
 
 
 function random(max, min) {
-return Math.floor(Math.random() * (max - min)) + min;
+ return Math.floor(Math.random() * (max - min)) + min;
 }
 
 
@@ -71,8 +70,8 @@ document.getElementById("change-image-size").onclick = function() {
   canvas.height = document.getElementById("image-size1").value;
   canvas.width = document.getElementById("image-size2").value;
 }
-var exportBtn = document.getElementById("export");
-var fileNameInput = document.getElementById("file-name");
+ var exportBtn = document.getElementById("export");
+ var fileNameInput = document.getElementById("file-name");
 exportBtn.onclick = function() {
   exportCanvasAsPNG("canvas1", fileNameInput.value);
 }
@@ -98,7 +97,7 @@ darkThemeBtn.onclick = function() {
   document.documentElement.style.setProperty("--input-color", "white");
   document.documentElement.style.setProperty("--input-text", "black");
   document.documentElement.style.setProperty("--input-border", "gray")
-  
+   
    }
 }
 var advancedSettingsHidden = document.getElementsByClassName("advanced-settings-hidden")[0];
@@ -153,7 +152,7 @@ btn.onclick = function() {
     else {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     }
-  
+   
   for(var t = 0; t < cubeQuantity; t+=0.5) {
   var x = 0.5;
   var y = 0.5;
@@ -164,4 +163,107 @@ btn.onclick = function() {
   ctx.fillRect(x,y,cubeSize,cubeSize);
     }
    }
+}
+//
+//
+//
+//
+//canvas2 
+//
+//
+//
+//
+//
+const canvas2 = document.getElementById("canvas2");
+const ctx2 = canvas2.getContext("2d");
+canvas2.width = 300;
+canvas2.height = 300;
+
+document.getElementById("random-gray-shade").oninput = function() {
+  if(document.getElementById("random-gray-shade").checked) {
+    document.getElementById("random-color").checked = false;
+  }
+}
+document.getElementById("random-color").oninput = function() {
+  if(document.getElementById("random-color").checked) {
+    document.getElementById("random-gray-shade").checked = false;
+  }
+}
+  
+
+canvas2.onclick = function(event) {
+var x = Math.floor(event.offsetX / 30) * 30;
+var y = Math.floor(event.offsetY / 30) * 30;
+if(currentDrawingMode === "Draw mode") {
+if(document.getElementById("random-color").checked) {
+    ctx2.fillStyle = "#" + randomColor();
+ }
+ else if(document.getElementById("random-gray-shade").checked) {
+   ctx2.fillStyle = randomGrayShade();
+ }
+ else if(ctx2ColorInput.value === "") {
+   ctx2.fillStyle = "black";
+ }
+ else if(ctx2ColorInput != "") {
+   ctx2.fillStyle = ctx2ColorInput.value;
+ }
+ 
+ctx2.fillRect(x,y,30,30);
+} else if(currentDrawingMode === "Erase mode") {
+  ctx2.clearRect(x,y,30,30);
+}
+ else if(currentDrawingMode === "Fill mode") {
+   if(document.getElementById("random-color").checked) {
+   ctx2.fillStyle = "#"+randomColor();
+ }
+ else if(document.getElementById("random-gray-shade").checked) {
+   ctx2.fillStyle = randomGrayShade();
+ }
+ else if(ctx2ColorInput.value === "") {
+   ctx2.fillStyle = "black";
+ }
+ else if(ctx2ColorInput != "") {
+   ctx2.fillStyle = ctx2ColorInput.value;
+ }
+   ctx2.fillRect(0,0,300,300);
+ }
+
+
+}
+const ctx2ColorInput = document.getElementById("canvas2-colorinput");
+const ctx2ColorBtn = document.getElementById("canvas2-colorbtn");
+ctx2ColorBtn.onclick = function() {
+  ctx2.fillStyle = ctx2ColorInput.value;
+}
+document.getElementById("canvas2-save").onclick = function() {
+  exportCanvasAsPNG(canvas2, document.getElementById('canvas2-file-name').value);
+}
+document.getElementById("clear-canvas").onclick = function() {
+  ctx2.clearRect(0,0,300,300);
+}
+var currentDrawingMode;
+var drawingModes = document.getElementsByClassName("drawing-modes");
+function drawingMode(event) {
+  for(var i = 0; i < 3; i++) {
+    drawingModes[i].classList = "drawing-modes";
+    event.currentTarget.classList += " selected";
+    currentDrawingMode = event.currentTarget.innerText;
+    }
+}
+
+function randomColor() {
+const hex = "ABCDEF0123456789";
+let color = "";
+for(let i = 0; i < 6; i++) {
+  color += hex.charAt(random(0,hex.length));
+  }
+return color;
+}
+function randomGrayShade() {
+const rgb = "0123456789";
+let color = "";
+for(let i = 0; i < 2; i++) {
+  color += rgb.charAt(random(0,rgb.length));
+  }
+return "rgb("+color+","+color+","+color+")";
 }
