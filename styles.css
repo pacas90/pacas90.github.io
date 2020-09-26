@@ -1,13 +1,11 @@
- :root {
-
-
---text-color: black;
---bg-color: white;
---settings-bg: #eeeeee;
---border-color: gray;
---input-color: white;
---input-text: black;
---input-border: gray;
+:root {
+ --text-color: black;
+ --bg-color: white;
+ --settings-bg: #eeeeee;
+ --border-color: gray;
+ --input-color: white;
+ --input-text: black;
+ --input-border: gray;
 }
 
 
@@ -29,7 +27,7 @@
 display: none;
 }
 #custom-content {
-display: none;
+ display: none;
 }
 
 
@@ -37,64 +35,71 @@ body {
   margin: 30px;
   color: var(--text-color);
   background-color: var(--bg-color);
-margin-top: 60px;
+ margin-top: 60px;
 }
 
 #canvas1, #canvas2 {
-image-rendering: crisp-edges;
-image-rendering: -webkit-optimize-contrast;
-image-rendering: pixelated;
-width: 300px;
-height: 300px;
-border: 1px solid var(--border-color);
+ image-rendering: crisp-edges;
+ image-rendering: -webkit-optimize-contrast;
+ image-rendering: pixelated;
+ width: 300px;
+ height: 300px;
+ border: 1px solid var(--border-color);
 }
 #settings {
-background-color: var(--settings-bg);
-padding: 10px;
-padding-bottom: 1px;
-border: 1px solid var(--border-color);
+ background-color: var(--settings-bg);
+ padding: 10px;
+ padding-bottom: 1px;
+ border: 1px solid var(--border-color);
 }
 #gen {
-width: 70px;
+ width: 70px;
 }
 #add-colors-input, #cube-size, #cube-quantity, #file-name {
-width: 80px;
+ width: 80px;
 }
 #add-colors-btn {
-width: 80px;
+ width: 80px;
 }
 .highlight {
-background-color: #fffdd0;
-letter-spacing: 2px;
-font-weight: 400;
-border-radius: 2px;
-color: black;
+ background-color: #fffdd0;
+ letter-spacing: 2px;
+ font-weight: 400;
+ border-radius: 2px;
+ color: black;
+}
+.highlight2 {
+ background-color: rgba(116, 198, 157,0.4);
+ letter-spacing: 2px;
+ font-weight: 400;
+ border-radius: 2px;
+ color: black;
 }
 hr {
-border: 0.5px solid lightgray;
-background-color: gray;
-border-radius: 3px;
+ border: 0.5px solid lightgray;
+ background-color: gray;
+ border-radius: 3px;
 }
 #image-size1, #image-size2 {
-width: 30px;
-text-align: center;
+ width: 30px;
+ text-align: center;
 }
 .advanced-settings-hidden {
-display: none;
-background-color: var(--settings-bg);
-padding: 10px;
-border: 1px solid var(--border-color);
+ display: none;
+ background-color: var(--settings-bg);
+ padding: 10px;
+ border: 1px solid var(--border-color);
 }
 
 .show {
-display: block;
+ display: block;
 }
 button {
-background-color: lightgray;
-border: 1px solid var(--border-color);
-font-weight: 300;
-outline: none;
-transition: 0.3s;
+ background-color: lightgray;
+ border: 1px solid var(--border-color);
+ font-weight: 300;
+ outline: none;
+ transition: 0.3s;
 }
 #remove-colors {
 border: 0px;
@@ -125,8 +130,29 @@ p {
   border: 2px rgba(255,0,0,1);
 }
 input {
-background-color: var(--input-color);
-text-align: center;
-color: var(--input-text);
-border: 1px solid var(--input-border);
+ background-color: var(--input-color);
+ text-align: center;
+ color: var(--input-text);
+ border: 1px solid var(--input-border);
+}
+#canvas2-settings {
+border: 1px solid var(--border-color);
+background-color: var(--settings-bg);
+padding: 10px;
+}
+#canvas2-settings input {
+width: 80px;
+}
+#draw-mode, #erase-mode, #clear-canvas, #fill-mode {
+border-bottom: 0px;
+}
+.selected {
+  background-color: rgba(116, 198, 157,0.5);
+  border: 1px solid rgb(116, 198, 157);
+}
+.selected:hover {
+  background-color: rgba(116, 198, 157,0.5);
+}
+#random-color {
+  
 }
