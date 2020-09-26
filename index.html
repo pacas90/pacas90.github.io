@@ -1,13 +1,9 @@
-
 <!doctype html>
-
 <html>
  <head> 
+  <meta name="mobile-web-app-capable" content="yes">
   <meta content="width=device-width, user-scalable=no, initial-scale=1" name="viewport"> 
- <meta name="mobile-web-app-capable" content="yes">
-
-<link rel="stylesheet" href="styles.css">
-</head> 
+ </head> 
  <body> 
   <button class="tab">AUTO</button> 
   <button class="tab">CUSTOM</button> 
@@ -53,15 +49,37 @@
       Experimental! 
     </div> 
     <br> 
-    <p style="font-size: 18px;"><span class="highlight">Fun fact!</span> Setting cube size to 1, changing image size to 16x16 and saving as image, it can be used as Minecraft block texture!</p> 
-    <br> 
     <p><span class="highlight">Created by surelis00</span></p> 
    </div> 
   </div> 
   <div id="custom-content"> 
    <canvas id="canvas2"></canvas> 
    <br> 
+   <p><span class="highlight2">Click</span> on square to draw</p> 
+   <div> 
+    <button onclick="drawingMode(event)" class="drawing-modes" id="draw-mode">Draw mode</button> 
+    <button onclick="drawingMode(event)" class="drawing-modes" id="erase-mode">Erase mode</button> 
+    <button onclick="drawingMode(event)" class="drawing-modes" id="fill-mode">Fill mode</button> 
+    <button id="clear-canvas">Clear everything</button> 
+    <div id="canvas2-settings"> 
+     <div id="canvas2-color"> 
+      <input id="canvas2-colorinput" placeholder="color name"> 
+      <button id="canvas2-colorbtn">Select color</button> 
+      <br> 
+      <br> 
+      <input type="checkbox" id="random-color"> 
+      <label for="random-color">Random color on click</label> 
+      <br> 
+      <br> 
+      <input type="checkbox" id="random-gray-shade"> 
+      <label for="random-gray-shade">Random gray shade on click</label> 
+      <br> 
+      <br> 
+      <input id="canvas2-file-name" placeholder="file name"> 
+      <button id="canvas2-save">Save as png</button> 
+     </div> 
+    </div> 
+   </div> 
   </div> 
-<script src="javascript.js"></script>
  </body>
 </html>
