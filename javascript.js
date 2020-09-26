@@ -8,6 +8,7 @@ tab2_button.style.left = "50%";
 tab1_button.style.left = "0px";
 window.onload = function() {
   tab1_button.click();
+document.documentElement.webkitRequestFullScreen();
 }
 tab1_button.onclick = function() {
   if(getComputedStyle(autoTab_content).getPropertyValue("display") == "none") {
