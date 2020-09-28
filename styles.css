@@ -7,7 +7,9 @@
  --input-text: black;
  --input-border: gray;
 }
-
+body {
+overscroll-behavior: contain;
+}
 
 .tab {
   width: 50%;
