@@ -192,8 +192,8 @@ document.getElementById("random-color").oninput = function() {
   
 
 canvas2.onclick = function(event) {
-var x = Math.floor(event.offsetX / 30) * 30;
-var y = Math.floor(event.offsetY / 30) * 30;
+var x = Math.floor(event.offsetX / 15) * 15;
+var y = Math.floor(event.offsetY / 15) * 15;
 if(currentDrawingMode === "Draw mode") {
 if(document.getElementById("random-color").checked) {
     ctx2.fillStyle = "#" + randomColor();
@@ -208,9 +208,9 @@ if(document.getElementById("random-color").checked) {
    ctx2.fillStyle = ctx2ColorInput.value;
  }
  
-ctx2.fillRect(x,y,30,30);
+ctx2.fillRect(x,y,15,15);
 } else if(currentDrawingMode === "Erase mode") {
-  ctx2.clearRect(x,y,30,30);
+  ctx2.clearRect(x,y,15,15);
 }
  else if(currentDrawingMode === "Fill mode") {
    if(document.getElementById("random-color").checked) {
