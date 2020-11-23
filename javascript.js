@@ -192,8 +192,8 @@ document.getElementById("random-color").oninput = function() {
   
 
 canvas2.onclick = function(event) {
-var x = Math.floor(event.offsetX / 16) * 16;
-var y = Math.floor(event.offsetY / 16) * 16;
+var x = Math.floor(event.offsetX / 4) * 4;
+var y = Math.floor(event.offsetY / 4) * 4;
 if(currentDrawingMode === "Draw mode") {
 if(document.getElementById("random-color").checked) {
     ctx2.fillStyle = "#" + randomColor();
