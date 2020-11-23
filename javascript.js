@@ -1,4 +1,4 @@
-jiconst tab1_button = document.getElementsByClassName("tab")[0];
+const tab1_button = document.getElementsByClassName("tab")[0];
 const tab2_button = document.getElementsByClassName("tab")[1];
 const autoTab_content = document.getElementById("auto-content");
 const customTab_content = document.getElementById("custom-content");
