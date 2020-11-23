@@ -208,7 +208,7 @@ if(document.getElementById("random-color").checked) {
    ctx2.fillStyle = ctx2ColorInput.value;
  }
  
-ctx2.fillRect(x,y,16,16);
+ctx2.fillRect(x,y,4,4);
 } else if(currentDrawingMode === "Erase mode") {
   ctx2.clearRect(x,y,16,16);
 }
@@ -225,7 +225,7 @@ ctx2.fillRect(x,y,16,16);
  else if(ctx2ColorInput != "") {
    ctx2.fillStyle = ctx2ColorInput.value;
  }
-   ctx2.fillRect(0,0,16,16);
+   ctx2.fillRect(0,0,64,64);
  }
 
 
@@ -239,7 +239,7 @@ document.getElementById("canvas2-save").onclick = function() {
   exportCanvasAsPNG(canvas2, document.getElementById('canvas2-file-name').value);
 }
 document.getElementById("clear-canvas").onclick = function() {
-  ctx2.clearRect(0,0,300,300);
+  ctx2.clearRect(0,0,64,64);
 }
 var currentDrawingMode;
 var drawingModes = document.getElementsByClassName("drawing-modes");
