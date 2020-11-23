@@ -29,7 +29,7 @@ tab1_button.onclick = function() {
 function exportCanvasAsPNG(canvas, fileName) {
 
     
-    canvas = this.canvas;
+    //canvas = this.canvas;
     var MIME_TYPE = "image/png";
 
     var imgURL = canvas.toDataURL(MIME_TYPE);
@@ -73,7 +73,7 @@ document.getElementById("change-image-size").onclick = function() {
  var exportBtn = document.getElementById("export");
  var fileNameInput = document.getElementById("file-name");
 exportBtn.onclick = function() {
-  //exportCanvasAsPNG("canvas2", fileNameInput.value);
+  exportCanvasAsPNG(canvas2, fileNameInput.value);
 }
 
 var darkThemeBtn = document.getElementById("dark-theme-btn");
@@ -236,7 +236,7 @@ ctx2ColorBtn.onclick = function() {
   ctx2.fillStyle = ctx2ColorInput.value;
 }
 document.getElementById("canvas2-save").onclick = function() {
-  exportCanvasAsPNG("canvas2", document.getElementById('canvas2-file-name').value);
+  exportCanvasAsPNG(canvas2, document.getElementById('canvas2-file-name').value);
 }
 document.getElementById("clear-canvas").onclick = function() {
   ctx2.clearRect(0,0,300,300);
