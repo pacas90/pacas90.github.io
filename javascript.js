@@ -208,9 +208,9 @@ if(document.getElementById("random-color").checked) {
    ctx2.fillStyle = ctx2ColorInput.value;
  }
  
-ctx2.fillRect(x,y,4,4);
+ctx2.fillRect(x,y,32,32);
 } else if(currentDrawingMode === "Erase mode") {
-  ctx2.clearRect(x,y,4,4);
+  ctx2.clearRect(x,y,64,64);
 }
  else if(currentDrawingMode === "Fill mode") {
    if(document.getElementById("random-color").checked) {
@@ -225,7 +225,7 @@ ctx2.fillRect(x,y,4,4);
  else if(ctx2ColorInput != "") {
    ctx2.fillStyle = ctx2ColorInput.value;
  }
-   ctx2.fillRect(0,0,64,64);
+   ctx2.fillRect(0,0,32,32);
  }
 
 
