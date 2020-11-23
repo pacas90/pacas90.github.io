@@ -176,8 +176,8 @@ btn.onclick = function() {
 //
 const canvas2 = document.getElementById("canvas2");
 const ctx2 = canvas2.getContext("2d");
-canvas2.width = 100;
-canvas2.height = 100;
+canvas2.width = 300;
+canvas2.height = 300;
 
 document.getElementById("random-gray-shade").oninput = function() {
   if(document.getElementById("random-gray-shade").checked) {
