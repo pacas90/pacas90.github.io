@@ -1,4 +1,4 @@
-const tab1_button = document.getElementsByClassName("tab")[0];
+jiconst tab1_button = document.getElementsByClassName("tab")[0];
 const tab2_button = document.getElementsByClassName("tab")[1];
 const autoTab_content = document.getElementById("auto-content");
 const customTab_content = document.getElementById("custom-content");
@@ -176,8 +176,8 @@ btn.onclick = function() {
 //
 const canvas2 = document.getElementById("canvas2");
 const ctx2 = canvas2.getContext("2d");
-canvas2.width = 300;
-canvas2.height = 300;
+canvas2.width = 64;
+canvas2.height = 64;
 
 document.getElementById("random-gray-shade").oninput = function() {
   if(document.getElementById("random-gray-shade").checked) {
