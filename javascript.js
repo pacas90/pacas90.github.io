@@ -236,7 +236,7 @@ ctx2ColorBtn.onclick = function() {
   ctx2.fillStyle = ctx2ColorInput.value;
 }
 document.getElementById("canvas2-save").onclick = function() {
-  exportCanvasAsPNG(canvas2, document.getElementById('canvas2-file-name').value);
+  exportCanvasAsPNG("canvas2", document.getElementById('canvas2-file-name').value);
 }
 document.getElementById("clear-canvas").onclick = function() {
   ctx2.clearRect(0,0,300,300);
