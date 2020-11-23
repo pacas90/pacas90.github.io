@@ -176,8 +176,8 @@ btn.onclick = function() {
 //
 const canvas2 = document.getElementById("canvas2");
 const ctx2 = canvas2.getContext("2d");
-canvas2.width = 64;
-canvas2.height = 64;
+canvas2.width = 100;
+canvas2.height = 100;
 
 document.getElementById("random-gray-shade").oninput = function() {
   if(document.getElementById("random-gray-shade").checked) {
@@ -192,8 +192,8 @@ document.getElementById("random-color").oninput = function() {
   
 
 canvas2.onclick = function(event) {
-var x = Math.floor(event.offsetX / 64) * 64;
-var y = Math.floor(event.offsetY / 64) * 64;
+var x = Math.floor(event.offsetX / 15) * 15;
+var y = Math.floor(event.offsetY / 15) * 15;
 if(currentDrawingMode === "Draw mode") {
 if(document.getElementById("random-color").checked) {
     ctx2.fillStyle = "#" + randomColor();
@@ -208,9 +208,9 @@ if(document.getElementById("random-color").checked) {
    ctx2.fillStyle = ctx2ColorInput.value;
  }
  
-ctx2.fillRect(x,y,64,64);
+ctx2.fillRect(x,y,15,15);
 } else if(currentDrawingMode === "Erase mode") {
-  ctx2.clearRect(x,y,64,64);
+  ctx2.clearRect(x,y,15,15);
 }
  else if(currentDrawingMode === "Fill mode") {
    if(document.getElementById("random-color").checked) {
