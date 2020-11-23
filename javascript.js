@@ -73,7 +73,7 @@ document.getElementById("change-image-size").onclick = function() {
  var exportBtn = document.getElementById("export");
  var fileNameInput = document.getElementById("file-name");
 exportBtn.onclick = function() {
-  exportCanvasAsPNG("canvas1", fileNameInput.value);
+  exportCanvasAsPNG("canvas2", fileNameInput.value);
 }
 
 var darkThemeBtn = document.getElementById("dark-theme-btn");
