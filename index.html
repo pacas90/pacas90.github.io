@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@337&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+  <link href="/index.css" rel="stylesheet">
+  <link href="/styles/ripple.css" rel="stylesheet">
+  <link href="/styles/crop.css" rel="stylesheet">
+  <link href="styles/snackbar.css" rel="stylesheet">
+  <link href="/styles/ui-components.css" rel="stylesheet">
+  <meta name="theme-color" content="#ffffff">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+<body>
+	
+	<div id="canvas-div2">
+   <div id="canvas-div">
+     <canvas id="canvas"></canvas>
+  </div>
+  </div>
+   
+   
+
+   
+   
+   
+   
+  <div id="nav">
+    <button id="styles-btn" class="nav-btn">STYLES</button>
+    <button id="tools-btn" class="nav-btn">TOOLS</button>
+    <button id="download-btn" class="nav-btn">SAVE</button>
+   </div>
+  
+    <div class="styles-section sections">
+<p>styles section</p>
+  </div>
+  
+
+
+  
+  <div class="tools-section sections">
+     
+   <button class="tools"><i class="material-icons">crop</i></button>
+   <button class="tools"><i class="material-icons">tune</i></button>
+   <button class="tools"><i class="material-icons">brush</i></button>
+   <button class="tools"><i class="material-icons">rotate_right</i></button>
+   <button class="tools"><i class="material-icons">?</i></button>
+   <button class="tools"><i class="material-icons">text_fields</i></button>
+   <button class="tools"><i class="material-icons">insert_photo</i></button>
+   <button class="tools"><i class="material-icons">filter_frames</i></button>
+  </div>
+  
+  <div style="opacity:0;height:0;width:0;" class="selected-tool-settings">
+  	<!--crop but not used-->
+  </div>
+  <div id="tune-section" class="selected-tool-settings">
+
+   	<button class="tune-buttons">SATURATION</button>
+   	<button class="tune-buttons">BRIGHTNESS</button>
+   	<button class="tune-buttons">HUE</button>
+   	<button class="tune-buttons">CONTRAST</button>
+   	<button class="tune-buttons">BLUR</button>
+   	<button class="tune-buttons">SHARPNESS</button>
+   	<button class="tune-buttons">SHADOWS</button>
+   	<button class="tune-buttons">GRAIN</button>
+  </div>
+  
+  <div class="selected-tool-settings">paint</div>
+  <div class="selected-tool-settings">rotate</div>
+  <div class="selected-tool-settings">blur already added so this will be deleted later</div>
+  <div class="selected-tool-settings" id="add-text-section">
+    <textarea id="add-text-textarea" placeholder="write text here and drag it to image"></textarea>
+  </div>
+  <div class="selected-tool-settings">insert photo</div>
+  <div class="selected-tool-settings">frame</div>
+         
+   <div class="tune-slider-container">
+     <div class="tune-slider">
+     	  <div class="tune-slider-active"></div>
+     </div>
+     <p class="tune-slider-text"></p>
+   </div>
+   
+    <div class="tune-slider-container">
+     <div class="tune-slider">
+     	  <div class="tune-slider-active"></div>
+     </div>
+     <p class="tune-slider-text"></p>
+   </div>
+   
+   <div class="tune-slider-container">
+     <div class="tune-slider">
+     	  <div class="tune-slider-active"></div>
+     </div>
+     <p class="tune-slider-text"></p>
+   </div>
+   
+   <div class="tune-slider-container">
+     <div class="tune-slider">
+     	  <div class="tune-slider-active"></div>
+     </div>
+     <p class="tune-slider-text"></p>
+   </div>
+   
+   <div class="tune-slider-container">
+     <div class="tune-slider">
+     	  <div class="tune-slider-active"></div>
+     </div>
+     <p class="tune-slider-text"></p>
+   </div>
+         
+  <div id="confirm-crop"><button id="crop-image">CROP IMAGE</button></div>
+ 
+ <div class="download-section sections">
+
+   <div class="fancy-input">
+     <input id="file-name" data-label="File name" data-icon=".png">
+   </div>
+   <div id="download-btn-toggle" class="button-toggle">
+   	<button class="button-toggle-btn default">.png</button>
+   	<button class="button-toggle-btn">.jpeg</button>
+   </div>
+   <button id="download"><a>DOWNLOAD</a><i class="material-icons">get_app</i></button>
+   
+   
+  </div>
+  
+<div id="top-nav">
+  <button id="open-btn" class="top-nav-btn">
+   OPEN NEW
+  </button>
+  <input id="file-input" type="file">
+    <button class="top-nav-btn" id="settings-btn">SETTINGS</button>
+</div>
+
+
+ <div class="settings-section">
+
+ 
+ 	
+ 	<div class="settings-label">Appearance</div>
+ 	<div id="theme-btn" class="settings-containers">
+     <div id="slide-theme" class="slide-toggle"></div>
+     <p>Dark theme</p>
+ </div>
+ <div class="settings-containers">
+ 	  <p id="experimental-design-button">Switch to experimental design</p>
+ </div>
+ <hr>
+ <div class="settings-label">Features</div>
+ 
+  <div class="settings-containers">
+ 	  <div id="slide-zooming" class="slide-toggle"></div>
+ 	  <p>Image zooming BUGGY</p>
+ </div>
+ <hr>
+ <div class="settings-label">Other</div>
+    <div  class="settings-containers">
+   	<div id="fullscreen-toggle" class="slide-toggle"></div>
+ 	  <p>Enable fullscreen</p>
+ </div>
+ <div class="settings-containers">
+ 	  <div class="slide-toggle"></div>
+ 	  <p>Save settings into local storage</p>
+ </div>
+ <br>
+ 
+ 
+ 
+ </div>
+ 
+  <script type="module" src="/main_tabs.js"></script>
+  <script type="module" src="/index.js"></script>
+  <script type="module" src="/editor.js"></script>
+  <script type="module" src="./modules/crop.js"></script>
+  <script type="module" src="./modules/tune.js"></script>
+  <script src="./modules/ui-components.js"></script>
+  <script type="module" src="./modules/snackbar.js"></script>
+  <script type="module" src="./modules/ripple.js"></script>
+  <script type="module" src="./modules/zoom.js"></script>
+</body>
+</html>
