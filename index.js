@@ -40,7 +40,7 @@ var theme = {
 var experimentalDesign = {
 	button: document.querySelector("#experimental-design-button"),
 	behaviour: function() {
-	 	location.href = 'experimental-design.html'
+	 	location.href = 'test.html'
 	}
 }
 var experimentalFeatures = {
