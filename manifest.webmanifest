@@ -4,7 +4,7 @@
   "description": "Simple editor to edit photos",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "/icon.png",
       "sizes": "32x32",
       "type": "image/png"
     }
