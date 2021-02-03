@@ -24,8 +24,8 @@
   border-radius: 15px;
   position: absolute;
   pointer-events: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 2px 3px rgba(0,0,0,0.15);
-
+/*  box-shadow: 0 1px 1px rgba(0,0,0,0.1), 0 1px 1px rgba(0,0,0,0.15);
+*/
 }
 .slide-circle {
   position: absolute;
@@ -86,15 +86,16 @@
   transition: transform 0.15s;
   user-select: none;
   margin-left: 5px;
-  color: var(--text-color);
+  color: var(--text-lighter-color);
   position: absolute;
   pointer-events: none;
   font-size: 15px;
 }
 .label-transform {
-  transform: translate(-5px,-20px) scale(0.8);
+/* transform: translate(-5px,-20px) scale(0.8);*/
   font-weight: 400;
   background-color: var(--secondary-color);
+  color: var(--text-color);
 }
 .icon {
   background-color: transparent;
@@ -107,9 +108,6 @@
   font-weight: 300;
   user-select: none;
 }
-
-
-
 
 .button-toggle {
   border: 1px solid var(--text-color);
@@ -133,6 +131,8 @@
 }
 .toggled-btn {
   background-color: var(--active-button-color);
+  color: var(--accent-color);
+  font-weight: var(--optional-font-weight);
 }
 .active-ui-component {
 	border: 1px solid var(--accent-color);
@@ -143,3 +143,4 @@
 	border: 0;
 	color: var(--text-color);
 }
+
