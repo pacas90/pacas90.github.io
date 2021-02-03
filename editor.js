@@ -1,31 +1,62 @@
 import { Crop, getProp } from "./modules/crop.js";
 import { Tune } from "./modules/tune.js";
 import { Snackbar } from "./modules/snackbar.js";
+import { Dialog } from "./modules/ui.js";
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = 100;
 canvas.height = 100;
 
-
 const fileInput = document.querySelector("#file-input");
-fileInput.addEventListener("change",loadImage);
+document.getElementById("upload-image-btn").addEventListener("click",function() {
+	fileInput.click();
+});
+function load() {
+	document.getElementById("import-from-url-input").value = "";
+  loadImage();
+	new Dialog("#open-image").hide();
+	};
+fileInput.addEventListener("change",function() {
+	document.getElementById("file-name-dialog").innerHTML = fileInput.files[0].name;
+	document.getElementById("file-dialog-add-image").addEventListener("click", load);
+});
+document.getElementById("dialog-import-from-url-btn").addEventListener("click",function() {
+	fileInput.value = "";
+	document.getElementById("file-name-dialog").innerHTML = ""
+	const input = document.getElementById("import-from-url-input");
+	if(input.value !== "") {
+		document.getElementById("file-dialog-add-image").removeEventListener("click",load);
+		document.getElementById("file-dialog-add-image").addEventListener("click",function() {
+  		loadImage(input.value);
+  		new Dialog("#open-image").hide();
+		});
+	}
+});
 
 
-function loadImage() {
+function loadImage(url) {
 	
 	Tune.disable();
 	Crop.disable();
-	
   var file = fileInput.files[0];
   var img = new Image();
+  if(arguments[0] === undefined) {
   var reader = new FileReader();
   reader.onload = function() {
     img.src = reader.result;
   }
   reader.readAsDataURL(file);
+  }
+  else {
+  	img.src = url;
+  }
   img.onload = function() {
     drawImage(img);
+    
+    
+    
+    
   }
 }
 
@@ -136,4 +167,32 @@ function disableTools() {
 	
 }
 
+function downloadImage(filename, extension) {
+    var a = document.createElement('a');
+    a.href = canvas.toDataURL(`image/${extension}`);
+    a.download = filename+'.'+extension;
+    document.body.appendChild(a);
+    a.click();
+} 
  
+document.querySelector("#download").addEventListener("click",function(){
+	const extensionsBtn = document.querySelector("#download-btn-toggle").children;
+  let extension;
+  for(let i = 0; i < extensionsBtn.length; i++) {
+  	if(extensionsBtn[i].getAttribute("data-toggled") === "true") {
+  		extension = extensionsBtn[i].innerText;
+  		extension = extension.replace('.','');
+	  }
+  }
+ let fileName = document.getElementById("file-name").value;
+ if(fileName === "") {
+ 	 fileName =  "edited-photo";
+ }
+ downloadImage(fileName,extension);
+ 
+ Snackbar.show({
+ 	text: `${fileName}.${extension} downloaded succesfully...`,
+ 	duration: 4000,
+ 	icon: "<i class='material-icons'>done</i>"
+ })
+});
