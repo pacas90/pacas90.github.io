@@ -1,7 +1,7 @@
 <!doctype html>
-<html>
+<html class="theme-light">
 <head>
-<link rel="manifest" href="/manifest.webmanifest">
+  <link rel="manifest" href="/manifest.webmanifest">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@337&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
@@ -10,7 +10,10 @@
   <link href="/styles/crop.css" rel="stylesheet">
   <link href="styles/snackbar.css" rel="stylesheet">
   <link href="/styles/ui-components.css" rel="stylesheet">
+  <link href="/styles/dropdown-menu.css" rel="stylesheet">
+  <link href="/styles/ui.css" rel="stylesheet">
   <meta name="theme-color" content="#ffffff">
+  <meta content="width=device-width, initial-scale=1 minimum-scale=1 maximum-scale=1" name="viewport">
   <meta name="description" content="Easy to use free online image editor for smartphones">
   <meta name="keywords" content="image editor, edit images, image, picture editor, img editor">
   <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -71,7 +74,9 @@
   </div>
   
   <div class="selected-tool-settings">paint</div>
-  <div class="selected-tool-settings">rotate</div>
+  <div style='height:0;width:0;opacity:0;' class="selected-tool-settings">
+  	<!--rotate not used -->
+  </div>
   <div class="selected-tool-settings">blur already added so this will be deleted later</div>
   <div class="selected-tool-settings" id="add-text-section">
     <textarea id="add-text-textarea" placeholder="write text here and drag it to image"></textarea>
@@ -114,11 +119,11 @@
      <p class="tune-slider-text"></p>
    </div>
          
-  <div id="confirm-crop"><button id="crop-image">CROP IMAGE</button></div>
+  <div id="confirm-crop"><button id="crop-image">APPLY</button></div>
  
  <div class="download-section sections">
 
-   <div class="fancy-input">
+   <div id="file-name-container" class="fancy-input">
      <input id="file-name" data-label="File name" data-icon=".png">
    </div>
    <div id="download-btn-toggle" class="button-toggle">
@@ -126,23 +131,38 @@
    	<button class="button-toggle-btn">.jpeg</button>
    </div>
    <button id="download"><a>DOWNLOAD</a><i class="material-icons">get_app</i></button>
-   
-   
   </div>
+  
+  
   
 <div id="top-nav">
   <button id="open-btn" class="top-nav-btn">
-   OPEN NEW
+   NEW IMAGE
   </button>
-  <input id="file-input" type="file">
     <button class="top-nav-btn" id="settings-btn">SETTINGS</button>
 </div>
 
 
- <div class="settings-section">
+ <div id="open-image" class="UI-dialog"> 
+   <h3 class="heading">New image</h3> 
+   <p class="content">Upload:</p>
+   <button id="upload-image-btn" class="content"><i class="material-icons">upload</i></button>
+   <p class="content" id="file-name-dialog" style="font-style:italic;"></p>
+   <input id="file-input" type="file">
+   <hr class="content">
+   <p class="content">Import from URL:</p>
+   <div id="import-from-url-div" class="content">
+   <div id="import-from-url-input-container" class="fancy-input">
+     <input id="import-from-url-input" data-label="URL">
+   </div>
+   <button id="dialog-import-from-url-btn">IMPORT</button>
+   </div>
+   <button id="file-dialog-cancel" class="buttons">Cancel</button> 
+   <button id="file-dialog-add-image" class="buttons">Add image</button> 
+  </div> 
 
- 
- 	
+
+ <div class="settings-section">
  	<div class="settings-label">Appearance</div>
  	<div id="theme-btn" class="settings-containers">
      <div id="slide-theme" class="slide-toggle"></div>
@@ -179,9 +199,12 @@
   <script type="module" src="/editor.js"></script>
   <script type="module" src="./modules/crop.js"></script>
   <script type="module" src="./modules/tune.js"></script>
-  <script src="./modules/ui-components.js"></script>
+  <script type="module" src="./modules/ui-components.js"></script>
   <script type="module" src="./modules/snackbar.js"></script>
   <script type="module" src="./modules/ripple.js"></script>
   <script type="module" src="./modules/zoom.js"></script>
+  <script type="module" src="./modules/rotate.js"></script>
+  <script type="module" src="./modules/dropdown-menu.js"></script>
+  <script type="module" src="./modules/ui.js"></script>
 </body>
 </html>
