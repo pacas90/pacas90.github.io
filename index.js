@@ -6,7 +6,7 @@ document.getElementById("fullscreen-toggle").addEventListener("click",function()
 	toggleFullScreen();
 });
 
-const buttons = document.querySelectorAll("button, .ripple");
+const buttons = document.querySelectorAll("button");
 buttons.forEach(button => button.addEventListener("click",  (event) => {
    Ripple.create({
      opacity: 0.3
@@ -14,23 +14,19 @@ buttons.forEach(button => button.addEventListener("click",  (event) => {
   })
 );
 
-
-
-window.onload = function() {
-	document.documentElement.className = defaultTheme;
-}
 const theme_toggle = document.querySelector("#slide-theme");
 const optionalTheme = "theme-dark";
 const defaultTheme = "theme-light";
 	
 function toggleTheme() {
-	if(theme_toggle.getAttribute("data-checked") === "true") {
+	if(theme_toggle.getAttribute("data-checked") === "false") {
 		document.documentElement.className = optionalTheme;
 	}
 	else {
 		document.documentElement.className = defaultTheme;
 	}
 }
+
 
 
 var theme = {
@@ -40,7 +36,7 @@ var theme = {
 var experimentalDesign = {
 	button: document.querySelector("#experimental-design-button"),
 	behaviour: function() {
-	 	location.href = 'test.html'
+	 	location.href = 'experimental-design.html'
 	}
 }
 var experimentalFeatures = {
@@ -53,8 +49,10 @@ var experimentalFeatures = {
 
 var arr = [theme, experimentalDesign, experimentalFeatures];
 for(let i = 0; i < arr.length; i++) {
-	arr[i].button.onclick = () => {
+	arr[i].button.addEventListener("click",function() {
 		arr[i].behaviour();
-	}
+	});
 }
+
+
 
