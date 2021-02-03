@@ -1,6 +1,9 @@
  import { Snackbar } from "./modules/snackbar.js";
  import { Tune } from "./modules/tune.js";
  import { Crop } from "./modules/crop.js";
+ import { 
+ 	Dialog
+ } from "./modules/ui.js";
 
  
  function getProp(el, style) {
@@ -205,6 +208,21 @@ for(let i = 0; i < tune_buttons.length; i++) {
     }
   });
 }
+
+const newImageButton = document.getElementById("open-btn");
+const newImageDialog = new Dialog("#open-image");
+newImageDialog.create({
+	width: "300px",
+	height: "310px",
+	bgColor: "var(--secondary-color)",
+	textColor: "var(--text-color)"
+});
+newImageButton.addEventListener("click", function() {
+newImageDialog.show()
+});
+document.getElementById("file-dialog-cancel").addEventListener("click",function(){
+	newImageDialog.hide();
+});
 
 
 
