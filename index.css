@@ -1,47 +1,32 @@
-:root {
-	--slide-toggle-effect: rgba(255,255,255,0.2);
-	--btn-active-bg-color: #cea5ff50;
-  --btn-active-text-color: #cea5ff;
-  --btn-active-tools-bg-color: rgb(70,70,70);
-  --primary-color: #222222;
-  --accent-color: #cea5ff;
-  --text: #cccccc;
-  --box-shadow: rgb(0,0,0,0.7);
-  --body-color: #121212;
-  --secondary-color: #2a2a2a;
-  --third-color: #2f2f2f;
-  
-  --primary-border-color: #4f4f4f;
-  --secondary-border-color: #4f4f4f;
-  --third-border-color: #474747;
-  --hr: gray;
-  --contrast-text: #ffffff;
-}
 .theme-dark {
-	--slide-toggle-effect: #719ee934;
+	--slide-toggle-effect: #fbc02d34;
   --primary-color: #181818;
   --secondary-color: #222222;
-  --accent-color: #719ee9;
-  --accent-lighter-color: #719ee950;
-  --active-button-color: rgba(255,255,255,0.1);
+  --accent-color: #FBC02D;
+  --accent-lighter-color: #fbc02d30;
+  --active-button-color: rgba(255,255,255,0.09);
   --text-color: #cccccc;
   --hr-color: gray;
   --body-color: #121212;
   --box-shadow-color: transparent;
   --border-color: #3f3f3f;
+  --text-lighter-color: #666666;
+  --optional-font-weight: 400;
 }
 .theme-light {
-	--slide-toggle-effect: #2f73e334;
+	--slide-toggle-effect: #d4970034;
   --primary-color: #ffffff;
   --secondary-color: #ffffff;
-  --accent-color: #2f73e3;
-  --accent-lighter-color: #2f73e350;
-  --active-button-color: rgba(220,220,220,0.8);
+  --accent-color: #feb500;
+  --accent-lighter-color: #d4970030;
+  --active-button-color: rgba(220,220,220,0.5);
+  --optional-font-weight: 600;
   --text-color: #242424;
   --hr-color: #cfcfcf;
   --body-color: #dfdfdf;
   --box-shadow-color: rgba(0,0,0,0.2);
   --border-color: transparent;
+  --text-lighter-color: #828282;
 }
 body {
   margin: 0;
@@ -146,6 +131,31 @@ input[type="file"] {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+#open-new-section {
+  height: 100px;
+	width: 100%;
+	position: fixed;
+	top: -52px;
+	transition: transform 0.3s;
+	color: var(--text-color);
+	background-color: var(--secondary-color);
+	border-bottom: 1px solid var(--border-color);
+	box-shadow: 0 5px 5px -5px var(--box-shadow-color);
+	z-index: 14;
+}
+#new-image {
+	border: 1px solid var(--text-color);
+	border-radius: 3px;
+	width: 50%;
+	height: 35px;
+	position: relative; 
+	transform: translateX(10%);
+	margin-top: 8px;
+	color: var(--text-color);
+}
+.show-open-new {
+	transform: translateY(102px);
 }
 .settings-section {
   width: 100%;
@@ -255,7 +265,7 @@ canvas {
   transform: translateY(-100px);
   box-shadow: 0 -5px 8px -5px var(--box-shadow-color); 
 }
-.settings-section hr {
+hr {
 	width: 100%;
 	height: 0px;
 	border: 0;
@@ -398,4 +408,77 @@ canvas {
 }
 .settings-containers .slide-toggle {
 	justify-content: flex-end;
+}
+.dropdown-menu[data-menu-inner='import-from-url'] {
+	width: 200px;
+}
+#upload-image-btn {
+  width: 80px;
+  height: 35px;
+  background-color: transparent;
+  border-radius: 3px;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#upload-image-btn:focus {
+	border: 1px solid var(--accent-color);
+}
+#import-from-url-input-container {
+	width: calc(100% - 100px);
+	height: 35px;
+}
+#file-dialog-cancel {
+	border-radius: 3px;
+	width: 80px;
+	height: 30px;
+	color: var(--text-color);
+	border: 0;
+	font-weight: 500;
+	position: absolute;
+	left: calc(100% - 210px);
+}
+#file-dialog-add-image {
+	border: 0;
+	border-radius: 3px;
+	width: 100px;
+	height: 30px;
+	background-color: var(--accent-color);
+	color: var(--secondary-color);
+	font-weight: 500;
+	position: absolute;
+	right: 0;
+	box-shadow: 0 3px 5px rgba(0,0,0,0.1), 0 2px 3px rgba(0,0,0,0.15);
+}
+#dialog-import-from-url-btn {
+	border: 0;
+	border-radius: 3px;
+	color: var(--text-color);
+	font-weight: 500;
+	height: 35px;
+	width: 70px;
+	margin-left: 0;
+	border: 1px solid var(--text-color);
+	transition: 0.3s;
+}
+#dialog-import-from-url-btn:focus {
+	border: 1px solid var(--accent-color);
+	box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 3px rgba(0,0,0,0.15);
+}
+#import-from-url-div {
+	display: flex;
+	justify-content: center;
+	margin: 0;
+}
+#file-name-dialog {
+	max-width: calc(100% - 20px);
+	max-height: 20px;
+	overflow-x: scroll;
+}
+#import-from-url-input-container .icon {
+	margin: 0;
+	min-width: 30px;
 }
