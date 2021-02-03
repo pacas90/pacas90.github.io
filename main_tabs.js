@@ -1,6 +1,8 @@
  import { Snackbar } from "./modules/snackbar.js";
  import { Tune } from "./modules/tune.js";
  import { Crop } from "./modules/crop.js";
+ import Rotate from "./modules/rotate.js";
+ import Dropdown from "./modules/dropdown-menu.js";
  import { 
  	Dialog
  } from "./modules/ui.js";
@@ -34,10 +36,8 @@ const tool_settings = document.querySelectorAll(".selected-tool-settings");
     for(let i = 0; i < tool_settings.length; i++) {
     	tool_settings[i].classList.remove("open-selected-tool-settings");
     	if(tools[i].classList.contains("active-tool-btn") && sections[1].classList.contains("show-section")) {
-       	if(i !== 0) {
        	tools_settings[i].style.transition = "transform 0.3s"
     		tools_settings[i].classList.add("open-selected-tool-settings");
-       	}
     	}
     	
     }
@@ -60,16 +60,18 @@ download_btn.addEventListener("click", function() {
 });
 
 
-const open_btn = document.querySelector("#open-btn");
-open_btn.addEventListener("click", function() {
+/*const newImage = document.querySelector("#new-image");
+newImage.addEventListener("click", function() {
   document.querySelector("input[type=file]").click();
-});
+});*/
 const settings_btn = document.getElementById("settings-btn");
 const settings_section = document.querySelector(".settings-section");
 settings_btn.addEventListener("click", function() {
   settings_section.classList.toggle("show-settings");
   settings_btn.classList.toggle("active-top-nav");
 });
+
+
 
 
 const tools = document.querySelectorAll(".tools");
@@ -95,7 +97,7 @@ var push = {
 	move: function() {
 		a = 0;
 		h = 0;
-	  canvasDiv.style.transition = "0.3s"
+	  canvasDiv.style.transition = "transform 0.3s"
 		for(let o = 0; o < sections.length; o++) {
 	  	if(sections[o].classList.contains("show-section")) {
 	  		a = getProp(sections[o],"height");
@@ -146,13 +148,19 @@ function openToolSettings(index) {
       tools[i].classList.remove("active-tool-btn");
     }
     tools_settings[index].classList.add("open-selected-tool-settings");
-   if(index !== 0) {
-   }
-    tools[index].classList.add("active-tool-btn");
+   if(index !== 3) {
+      tools[index].classList.add("active-tool-btn");
+    }
     if(index === 0) {
     	  
    	Crop.disable();
     Crop.add("free-size",canvas);
+    
+    Snackbar.show({
+    	text: "Draw on image to select area you want to crop. Once selected, you can also move the selection area.",
+    	duration: 3000
+    });
+    
     tools[0].classList.add("active-tool-btn");
     canvas.addEventListener("touchend",function() {
     	if(tools[0].classList.contains("active-tool-btn")) {
@@ -167,7 +175,7 @@ function openToolSettings(index) {
 		Snackbar.show({
     text: "No photo added!",
     duration: 1000,
-    icon: "<i class='material-icons'>error_outline</i"
+    icon: "<i class='material-icons'>error_outline</i>"
   });
 	}
 }
@@ -178,15 +186,15 @@ function openToolSettings(index) {
 function disableToolsFunctions() {
   Crop.disable();
 	Tune.disable();
-  document.getElementById("canvas").style.transition = "0.2s"
+  document.getElementById("canvas").style.transition = "transform 0.2s"
 }
 
 const download_toggle_btns = document.querySelectorAll("#download-btn-toggle .button-toggle-btn");
-const file_extension = document.querySelector(".fancy-input a");
+const file_extension = document.querySelector("#file-name-container");
 
 for(let i = 0; i < download_toggle_btns.length; i++) {
 	download_toggle_btns[i].addEventListener("click",function(){
-		file_extension.innerHTML = download_toggle_btns[i].innerText;
+		file_extension.children[2].innerHTML = download_toggle_btns[i].innerText;
 	});
 }
 
@@ -209,6 +217,13 @@ for(let i = 0; i < tune_buttons.length; i++) {
   });
 }
 
+//rotate button
+tools[3].addEventListener('click',function() {
+	Rotate.clockwise({
+		deg: 90
+	});
+});
+
 const newImageButton = document.getElementById("open-btn");
 const newImageDialog = new Dialog("#open-image");
 newImageDialog.create({
@@ -223,6 +238,3 @@ newImageDialog.show()
 document.getElementById("file-dialog-cancel").addEventListener("click",function(){
 	newImageDialog.hide();
 });
-
-
-
