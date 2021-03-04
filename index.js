@@ -44,6 +44,11 @@ window.addEventListener("load",function() {
 			document.getElementById("slide-theme").click();
 		}
 	}
+	else {
+	  localStorage.setItem("theme", "light");
+	  localStorage.setItem("accent-color","#f44336");
+	  localStorage.setItem("accent-color-index",0);
+	}	
 	let currentTheme = document.documentElement.className;
 	if(localStorage.getItem("accent-color") !== null) {
 	  applyAccentColor(currentTheme,localStorage.getItem("accent-color-index"));
